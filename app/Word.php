@@ -10,5 +10,6 @@ class Word extends Model
     	'title',
 		'synonyms',
 		'quotes',
+		'definition',
 	];
 }

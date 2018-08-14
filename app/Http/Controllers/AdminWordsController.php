@@ -14,7 +14,7 @@ class AdminWordsController extends Controller
      */
     public function index()
     {
-		$words = Word::all();
+		$words = Word::paginate(50);
         return view('admin.words.index',compact('words'));
     }
 

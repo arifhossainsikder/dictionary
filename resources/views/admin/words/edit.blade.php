@@ -24,6 +24,11 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('definition','Definition:') !!}
+            {!! Form::textarea('definition',null, ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group">
             {!! Form::submit('Update Word', ['class' => 'btn btn-primary col-sm-6']) !!}
         </div>
 
