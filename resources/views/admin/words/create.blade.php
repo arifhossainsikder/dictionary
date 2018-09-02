@@ -10,6 +10,11 @@
         {!! Form::text('title',null, ['class' => 'form-control']) !!}
     </div>
 
+    <div class="form-group">
+        {!! Form::label('definition','Definition:') !!}
+        {!! Form::textarea('definition',null, ['class' => 'form-control']) !!}
+    </div>
+
 
     <div class="form-group">
         {!! Form::label('synonyms','Synonyms:') !!}

@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'FrontController@index')->name('front');
+
+Route::post('/fetchsearch','FrontController@fetch')->name('fetch.search');
 
 Auth::routes();
 

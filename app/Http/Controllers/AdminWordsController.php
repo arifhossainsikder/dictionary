@@ -38,8 +38,7 @@ class AdminWordsController extends Controller
     {
 		$this->validate($request, [
 			'title' => 'required|max:255',
-			'quotes' => 'required',
-			'synonyms' => 'required',
+			'definition' => 'required',
 		]);
         Word::create($request->all());
         return redirect('admin/words');
