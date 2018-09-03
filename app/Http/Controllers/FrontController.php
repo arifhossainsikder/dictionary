@@ -27,7 +27,7 @@ class FrontController extends Controller
     		$output = '<ul class="dropdown-menu" style="display: block; position: relative">';
 
 				foreach ($data as $row){
-					$output .= '<li><a href="#">'.$row->title.'</a></li>';
+					$output .= '<li><a href="/word/'.$row->id.'">'.$row->title.'</a></li>';
 				}
 
 			$output .= '</ul>';
@@ -66,7 +66,8 @@ class FrontController extends Controller
      */
     public function show($id)
     {
-        //
+    	$word = Word::findOrFail($id);
+        return view('front-word',compact('word'));
     }
 
     /**

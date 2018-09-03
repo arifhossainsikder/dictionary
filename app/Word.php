@@ -11,5 +11,6 @@ class Word extends Model
 		'synonyms',
 		'quotes',
 		'definition',
+		'bmeaning',
 	];
 }

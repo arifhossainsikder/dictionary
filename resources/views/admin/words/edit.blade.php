@@ -29,6 +29,11 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('bmeaning','Bangla meaning:') !!}
+            {!! Form::textarea('bmeaning',null, ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group">
             {!! Form::submit('Update Word', ['class' => 'btn btn-primary col-sm-6']) !!}
         </div>
 

@@ -19,6 +19,10 @@ Route::get('/', 'FrontController@index')->name('front');
 
 Route::post('/fetchsearch','FrontController@fetch')->name('fetch.search');
 
+Route::get('/word', 'FrontController@index');
+
+Route::get('/word/{id}', 'FrontController@show')->name('word.show');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

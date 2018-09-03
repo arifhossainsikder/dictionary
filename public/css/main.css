@@ -322,3 +322,14 @@ body{
         margin: 0 auto;
 }
 }
+
+.bold-title {
+    font-size: 18px;
+    font-family: 'Lobster', cursive;
+    padding-bottom: 10px;
+}
+
+
+.social {
+    padding-top: 25px;
+}

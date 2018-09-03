@@ -7,19 +7,9 @@
         <div class="row">
             <div class="logo text-center">
                 <a href="{{ route('front') }}"><img src="/images/logo.png" alt="logo" width="150"></a>
-                <h2>We Are Baking Something New!!</h2>
+                <h2>Error 404!!</h2>
             </div>
 
-            <div class="subcription-info text-center">
-                <form class="subscribe_form" action="" method="get">
-                    <input required="" value="" placeholder="Enter your word..." class="email" id="word" name="word" type="text">
-                    <div id="wordList">
-
-                    </div>
-                    {{--<input class="subscribe" name="email" value="Search!" type="submit">--}}
-                    {{ csrf_field() }}
-                </form>
-            </div>
         </div>
     </div>
     <section>
@@ -82,4 +72,4 @@
         </div>
     </section>
 
-    @endsection
+@endsection
