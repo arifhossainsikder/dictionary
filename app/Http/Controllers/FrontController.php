@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use App\Word;
 use Illuminate\Http\Request;
 
@@ -67,7 +68,12 @@ class FrontController extends Controller
     public function show($id)
     {
     	$word = Word::findOrFail($id);
-        return view('front-word',compact('word'));
+    	$ip = request()->ip();
+    	$like = Like::where([
+			['word_id', '=', $word->id],
+			['ip', '=', $ip],
+])->first();
+        return view('front-word',compact('word', 'like'));
     }
 
     /**

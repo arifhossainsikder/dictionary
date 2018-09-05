@@ -26,7 +26,12 @@
                         <p><span class="bold-title">Synonyms: </span>{{ $word->synonyms }}</p>
 
                         <p><span class="bold-title">Quotes: </span>{{ $word->quotes }}</p>
-                        @endif
+                        {{--<p><span class="bold-title">Likes: </span>{{ $like['like'] }}</p>--}}
+                            {{--<div class="interaction">--}}
+                                {{--<a href="#" class="like">@if($like['like'] == 1)You like this post @elseif($like == null) Like @else Like @endif</a>--}}
+                                {{--<a href="#" class="like">@if($like && $like['like'] == 0)You dont like this post @elseif($like == null) Dislike @else Dislike @endif</a>--}}
+                            {{--</div>--}}
+                            @endif
                     </div>
                 </div>
             </div>

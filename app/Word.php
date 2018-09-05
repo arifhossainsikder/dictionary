@@ -13,4 +13,8 @@ class Word extends Model
 		'definition',
 		'bmeaning',
 	];
+
+    public function likes() {
+    	return $this->belongsTo('App\Like');
+	}
 }
