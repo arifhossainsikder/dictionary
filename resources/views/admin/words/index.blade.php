@@ -26,10 +26,10 @@
                         <td>{{$word->quotes}}</td>
                         <td>{{$word->definition}}</td>
                         @if($word->created_at !== null)
-                        <td>{{$word->created_at->diffForHumans()}}</td>
+                            <td>{{$word->created_at->diffForHumans()}}</td>
                         @endif
                         @if($word->updated_at !== null)
-                        <td>{{$word->updated_at->diffForHumans()}}</td>
+                            <td>{{$word->updated_at->diffForHumans()}}</td>
                         @endif
 
                     </tr>

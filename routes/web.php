@@ -19,6 +19,8 @@ Route::get('/', 'FrontController@index')->name('front');
 
 Route::post('/fetchsearch','FrontController@fetch')->name('fetch.search');
 
+Route::post('/like','FrontController@like')->name('like');
+
 Route::get('/word', 'FrontController@index');
 
 Route::get('/word/{id}', 'FrontController@show')->name('word.show');

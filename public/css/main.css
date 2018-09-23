@@ -332,3 +332,11 @@ body{
 .social {
     padding-top: 25px;
 }
+
+.like{
+    color: #ffffff;
+}
+
+.like:hover{
+    text-decoration: none;
+}

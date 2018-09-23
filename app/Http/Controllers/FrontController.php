@@ -38,6 +38,38 @@ class FrontController extends Controller
 
 	}
 
+	public function like(Request $request){
+		$word_id = $request['wordId'];
+		$is_like = $request['isLike'] === 'true';
+    	$update = false;
+    	$word = Word::find($word_id);
+    	if (!$word){
+    		return null;
+		}
+		$ip = $request->ip();
+    	$like = Like::where('word_id',$word_id)->where('ip',$ip)->first();
+    	if ($like) {
+			$already_like = $like->like;
+			$update       = true;
+			if ($already_like == $is_like) {
+				$like->delete();
+				return null;
+			}
+		}
+		else{
+    		$like = new Like();
+			}
+			$like->like = $is_like;
+    		$like->ip = $request->ip();
+    		$like->word_id = $word->id;
+    		if ($update){
+    			$like->update();
+			} else{
+    			$like->save();
+			}
+			return null;
+		}
+
     /**
      * Show the form for creating a new resource.
      *
