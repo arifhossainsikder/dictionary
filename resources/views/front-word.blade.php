@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 text-center">
                     @if($word)
-                    <div class="about-title" data-wordid="{{ $word->id }}>
+                    <div class="about-title" data-wordid="{{ $word->id }}">
 
                             <h2>{{ $word->title }}</h2>
 
@@ -55,7 +55,7 @@
                 data: {isLike: isLike, wordId: wordId, _token: token}
             })
                 .done(function() {
-                    event.target.innerText = isLike ? event.target.innerText == 'Like' ? 'You like this post' : 'Like' : event.target.innerText == 'Dislike' ? 'You don\'t like this post' : 'Dislike';
+                    event.target.innerText = isLike ? event.target.innerText == 'Like' ? 'You like this word' : 'Like' : event.target.innerText == 'Dislike' ? 'You don\'t like this word' : 'Dislike';
                     if (isLike) {
                         event.target.nextElementSibling.innerText = 'Dislike';
                     } else {

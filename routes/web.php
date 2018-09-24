@@ -27,11 +27,17 @@ Route::get('/word/{id}', 'FrontController@show')->name('word.show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::group(['middleware'=>'admin'], function () {
-
+	Route::get('/home', 'AdminController@index')->name('home');
 	Route::get('/admin', 'AdminController@index')->name('admin');
 	Route::resource('admin/words','AdminWordsController');
 
+});
+
+
+
+Route::middleware(['admin','superadmin'])->group(function () {
+	Route::resource('admin/users','AdminUsersController');
 });

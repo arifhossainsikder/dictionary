@@ -15,7 +15,7 @@ class AdminWordsController extends Controller
     public function index()
     {
 		$words = Word::paginate(50);
-        return view('admin.words.index',compact('words'));
+		return view('admin.words.index',compact('words'));
     }
 
     /**
@@ -41,6 +41,8 @@ class AdminWordsController extends Controller
 			'definition' => 'required',
 		]);
         Word::create($request->all());
+		$request->session()->flash('message.level', 'success');
+		$request->session()->flash('message.content', 'New word added successfully!');
         return redirect('admin/words');
     }
 
@@ -82,6 +84,8 @@ class AdminWordsController extends Controller
         $word = Word::findOrFail($id);
 
         $word->update($input);
+		$request->session()->flash('message.level', 'success');
+		$request->session()->flash('message.content', 'Word info updated successfully!');
 
         return redirect('admin/words');
     }
@@ -92,11 +96,13 @@ class AdminWordsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         $word = Word::findOrFail($id);
 
         $word->delete();
+		$request->session()->flash('message.level', 'danger');
+		$request->session()->flash('message.content', 'Word deleted successfully!');
 
         return redirect('admin/words');
     }

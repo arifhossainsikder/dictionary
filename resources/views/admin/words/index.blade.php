@@ -3,6 +3,11 @@
 
 @section('content')
     <h3>All Words</h3>
+    @if(session()->has('message.level'))
+        <div class="alert alert-{{ session('message.level') }}">
+            {!! session('message.content') !!}
+        </div>
+    @endif
     <div class="col-md-12">
         <table class="table">
             <thead>
