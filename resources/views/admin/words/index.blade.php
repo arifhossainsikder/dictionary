@@ -3,16 +3,25 @@
 
 @section('content')
     <h3>All Words</h3>
-    @if(session()->has('message.level'))
-        <div class="alert alert-{{ session('message.level') }}">
-            {!! session('message.content') !!}
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" id="search">
         </div>
-    @endif
+        <div id="wordList">
+
+        </div>
+        {{ csrf_field() }}
+    </form>
+
     <div class="col-md-12">
+        @if(session()->has('message.level'))
+            <div class="alert alert-{{ session('message.level') }}">
+                {!! session('message.content') !!}
+            </div>
+        @endif
         <table class="table">
             <thead>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Synonyms</th>
                 <th>Quotes</th>
@@ -25,7 +34,6 @@
             @if($words)
                 @foreach($words as $word)
                     <tr>
-                        <td>{{$word->id}}</td>
                         <td><a href="{{route('words.edit',$word->id)}}">{{$word->title}}</a></td>
                         <td>{{$word->synonyms}}</td>
                         <td>{{$word->quotes}}</td>
@@ -51,4 +59,34 @@
             {{$words->render()}}
         </div>
     </div>
+@endsection
+
+
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+            $('#search').keyup(function () {
+                var query = $(this).val();
+                if (query != ''){
+
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('search.admin') }}",
+                        method: "POST",
+                        data: {query: query, _token: _token},
+                        success: function (data) {
+                            $('#wordList').fadeIn();
+                            $('#wordList').html(data);
+                        }
+                    });
+
+                } else{
+                    $('#wordList').css("display", "none");
+                }
+            });
+
+        });
+    </script>
+
 @endsection

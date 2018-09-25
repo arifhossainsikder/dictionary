@@ -28,7 +28,7 @@ class FrontController extends Controller
     		$output = '<ul class="dropdown-menu" style="display: block; position: relative">';
 
 				foreach ($data as $row){
-					$output .= '<li><a href="/word/'.$row->id.'">'.$row->title.'</a></li>';
+					$output .= '<li><a href="/word/'.$row->id.'">'.$row->title.' ('.str_limit($row->definition,30).')</a></li>';
 				}
 
 			$output .= '</ul>';

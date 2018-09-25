@@ -106,4 +106,24 @@ class AdminWordsController extends Controller
 
         return redirect('admin/words');
     }
+
+
+	public function search(Request $request){
+
+		if ($request->get('query')){
+			$query = $request->get('query');
+			$data = Word::Where('title','like',$query.'%')->get();
+
+			$output = '<ul class="dropdown-menu" style="display: block; position: relative">';
+
+			foreach ($data as $row){
+				$output .= '<li><a href="words/'.$row->id.'/edit">'.$row->title.' ('.str_limit($row->definition,30).')</a></li>';
+			}
+
+			$output .= '</ul>';
+
+			echo $output;
+		}
+
+	}
 }

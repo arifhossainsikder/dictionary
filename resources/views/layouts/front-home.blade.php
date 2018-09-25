@@ -67,13 +67,6 @@
             }
         });
 
-        // $(document).on('click', 'li', function () {
-        //
-        //     $('#word').val($(this).text());
-        //     $('#wordList').fadeOut();
-        //
-        // });
-
     });
 </script>
 @yield('script')
